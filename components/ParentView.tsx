@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 
 interface ParentViewProps {
   topic: Topic;
+  locale: string;
   labels: {
     whatYouCanDo: string;
     whyItMatters: string;
@@ -18,23 +19,25 @@ interface ParentViewProps {
 
 const tipEmojis = ["💡", "🎯", "✨", "🌟", "🔑"];
 
-export function ParentView({ topic, labels }: ParentViewProps) {
+export function ParentView({ topic, locale, labels }: ParentViewProps) {
   const [whyExpanded, setWhyExpanded] = useState(false);
+  const parentTips = locale === "en" ? topic.parentTipsEn : topic.parentTips;
+  const parentWhy = locale === "en" ? topic.parentWhyEn : topic.parentWhy;
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-12">
       <section>
-        <h2 className="text-xl font-semibold text-stone-900 text-balance mb-6">{labels.whatYouCanDo}</h2>
+        <h2 className="font-serif text-2xl font-normal text-stone-900 text-balance mb-7 tracking-tight">{labels.whatYouCanDo}</h2>
         <ul className="space-y-4">
-          {topic.parentTips.map((tip, i) => (
+          {parentTips.map((tip, i) => (
             <li
               key={i}
-              className="flex gap-4 rounded-xl border border-stone-200 bg-white p-5 transition-colors hover:border-accent-parent/30"
+              className="flex gap-5 bg-white border border-stone-150 rounded-sm px-6 py-5"
             >
-              <span className="text-xl shrink-0" aria-hidden="true">
+              <span className="text-2xl shrink-0 leading-none pt-0.5" aria-hidden="true">
                 {tipEmojis[i % tipEmojis.length]}
               </span>
-              <p className="text-stone-700 leading-relaxed text-pretty">{tip}</p>
+              <p className="text-stone-700 leading-[1.8] text-pretty text-[0.9375rem]">{tip}</p>
             </li>
           ))}
         </ul>
@@ -43,28 +46,28 @@ export function ParentView({ topic, labels }: ParentViewProps) {
       <section>
         <button
           onClick={() => setWhyExpanded(!whyExpanded)}
-          className="flex w-full items-center justify-between rounded-xl border border-stone-200 bg-white p-5 text-left transition-colors hover:border-accent-parent/30"
+          className="flex w-full items-center justify-between border-l-4 border-accent-parent bg-stone-50 px-6 py-5 text-left"
           aria-expanded={whyExpanded}
           aria-controls="why-it-matters"
         >
-          <h2 className="text-xl font-semibold text-stone-900 text-balance">{labels.whyItMatters}</h2>
+          <h2 className="font-serif text-xl font-normal text-stone-900 text-balance italic">{labels.whyItMatters}</h2>
           <ChevronDown
             className={cn(
-              "size-5 text-stone-400 transition-transform duration-200",
+              "size-4 text-stone-400 shrink-0 ml-4",
               whyExpanded && "rotate-180"
             )}
             aria-hidden="true"
           />
         </button>
         {whyExpanded && (
-          <div id="why-it-matters" className="rounded-b-xl border border-t-0 border-stone-200 bg-white p-5">
-            <p className="text-stone-700 leading-relaxed text-pretty">{topic.parentWhy}</p>
+          <div id="why-it-matters" className="border-l-4 border-accent-parent bg-stone-50 px-6 pb-6 -mt-px">
+            <p className="text-stone-600 leading-[1.8] text-pretty text-[0.9375rem] italic">{parentWhy}</p>
           </div>
         )}
       </section>
 
       <section>
-        <p className="text-sm text-stone-500 mb-3">
+        <p className="text-xs text-stone-400 mb-4 tracking-wide uppercase">
           {labels.basedOnStudies.replace("{count}", String(topic.sources.length))}
         </p>
         <SourcesList sources={topic.sources} label={labels.simplifiedSources} simplified />

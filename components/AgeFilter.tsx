@@ -12,14 +12,15 @@ interface AgeFilterProps {
 export function AgeFilter({ selected, onSelect, allLabel }: AgeFilterProps) {
   return (
     <nav aria-label="Altersfilter" className="w-full overflow-x-auto scrollbar-none">
-      <div className="flex gap-2 pb-1 min-w-max">
+      <div className="flex gap-1 border-b border-stone-200 pb-px min-w-max">
         <button
           onClick={() => onSelect(null)}
           className={cn(
-            "rounded-full px-4 py-2 text-sm font-medium transition-colors whitespace-nowrap",
+            "px-4 py-2.5 text-sm font-medium whitespace-nowrap transition-[color,opacity] duration-200",
+            "rounded-lg md:rounded-none",
             selected === null
-              ? "bg-primary text-white shadow-sm"
-              : "bg-white text-stone-600 hover:bg-stone-100 border border-stone-200"
+              ? "text-primary border-b-2 border-b-primary -mb-px"
+              : "text-stone-500 hover:text-stone-800"
           )}
           aria-pressed={selected === null}
         >
@@ -30,10 +31,11 @@ export function AgeFilter({ selected, onSelect, allLabel }: AgeFilterProps) {
             key={group.id}
             onClick={() => onSelect(group.id)}
             className={cn(
-              "rounded-full px-4 py-2 text-sm font-medium transition-colors whitespace-nowrap",
+              "px-4 py-2.5 text-sm font-medium whitespace-nowrap transition-[color,opacity] duration-200",
+              "rounded-lg md:rounded-none",
               selected === group.id
-                ? "bg-primary text-white shadow-sm"
-                : "bg-white text-stone-600 hover:bg-stone-100 border border-stone-200"
+                ? "text-primary border-b-2 border-b-primary -mb-px"
+                : "text-stone-500 hover:text-stone-800"
             )}
             aria-pressed={selected === group.id}
           >

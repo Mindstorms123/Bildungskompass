@@ -32,41 +32,48 @@ export function Header({ locale, labels }: HeaderProps) {
       >
         {labels.skipToContent}
       </a>
-      <header className="sticky top-0 z-40 w-full border-b border-stone-200/60 bg-bg/80 backdrop-blur-lg">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 md:px-6">
+      <header className="sticky top-0 z-40 w-full border-t-2 border-t-primary border-b border-b-stone-200/60 bg-bg/80 backdrop-blur-lg">
+        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-6 px-4 md:px-6">
+          {/* Masthead logo */}
           <Link
             href={`/${locale}`}
-            className="flex items-center gap-2.5 text-primary font-semibold text-lg"
+            className="flex items-center gap-2.5 text-primary"
           >
-            <BookOpen className="size-6" aria-hidden="true" />
-            <span className="sr-only sm:not-sr-only sm:inline">Bildungskompass</span>
+            <BookOpen className="size-5" aria-hidden="true" />
+            <span className="sr-only sm:not-sr-only sm:inline font-serif text-xl tracking-tight">
+              Bildungskompass
+            </span>
           </Link>
 
+          {/* Centered audience toggle */}
           <div className="hidden md:block">
             <AudienceToggle labels={labels.audience} />
           </div>
 
-          <nav aria-label="Hauptnavigation" className="hidden md:flex items-center gap-1">
+          {/* Desktop navigation */}
+          <nav aria-label="Hauptnavigation" className="hidden md:flex items-center gap-6">
             <Link
               href={`/${locale}/methodik`}
               className={cn(
-                "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                "text-sm tracking-wide uppercase transition-colors",
                 pathname.includes("/methodik")
-                  ? "bg-stone-200/60 text-stone-900"
-                  : "text-stone-600 hover:text-stone-900 hover:bg-stone-100"
+                  ? "text-stone-900 border-b border-stone-900 pb-0.5"
+                  : "text-stone-500 hover:text-stone-900"
               )}
             >
               {labels.methodik}
             </Link>
+            <span className="text-stone-300" aria-hidden="true">|</span>
             <Link
               href={switchPath}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100 transition-colors"
+              className="text-sm tracking-wide uppercase text-stone-500 hover:text-stone-900 transition-colors"
               lang={otherLocale}
             >
               {labels.language}
             </Link>
           </nav>
 
+          {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden rounded-lg p-2 text-stone-600 hover:bg-stone-100"
@@ -74,25 +81,34 @@ export function Header({ locale, labels }: HeaderProps) {
             aria-expanded={mobileOpen}
             aria-controls="mobile-nav"
           >
-            {mobileOpen ? <X className="size-5" aria-hidden="true" /> : <Menu className="size-5" aria-hidden="true" />}
+            {mobileOpen ? (
+              <X className="size-5" aria-hidden="true" />
+            ) : (
+              <Menu className="size-5" aria-hidden="true" />
+            )}
           </button>
         </div>
 
+        {/* Mobile editorial sidebar menu */}
         {mobileOpen && (
-          <div id="mobile-nav" className="md:hidden border-t border-stone-200/60 bg-bg px-4 py-4 space-y-4">
+          <div
+            id="mobile-nav"
+            className="md:hidden border-t border-stone-200/60 bg-bg px-6 py-6 space-y-6"
+          >
             <AudienceToggle labels={labels.audience} />
+            <hr className="editorial-rule" />
             <nav aria-label="Hauptnavigation" className="flex flex-col gap-1">
               <Link
                 href={`/${locale}/methodik`}
                 onClick={() => setMobileOpen(false)}
-                className="rounded-lg px-3 py-2.5 text-sm font-medium text-stone-700 hover:bg-stone-100"
+                className="px-2 py-2.5 text-sm tracking-wide uppercase text-stone-700 hover:text-stone-900 border-l-2 border-transparent hover:border-primary"
               >
                 {labels.methodik}
               </Link>
               <Link
                 href={switchPath}
                 onClick={() => setMobileOpen(false)}
-                className="rounded-lg px-3 py-2.5 text-sm font-medium text-stone-700 hover:bg-stone-100"
+                className="px-2 py-2.5 text-sm tracking-wide uppercase text-stone-700 hover:text-stone-900 border-l-2 border-transparent hover:border-primary"
                 lang={otherLocale}
               >
                 {labels.language}

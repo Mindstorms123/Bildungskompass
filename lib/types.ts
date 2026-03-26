@@ -11,6 +11,7 @@ export type Audience = "pro" | "parent";
 export interface Topic {
   id: string;
   slug: string;
+  slugEn: string;
   title: string;
   titleEn: string;
   icon: string;
@@ -22,27 +23,33 @@ export interface Topic {
   };
   aiStatus: AIStatus;
   proSummary: string;
+  proSummaryEn: string;
   proTips: string[];
+  proTipsEn: string[];
   parentTips: string[];
+  parentTipsEn: string[];
   parentWhy: string;
+  parentWhyEn: string;
   sources: string[];
-  vorbilder: { name: string; country: string; desc: string }[];
+  vorbilder: { name: string; country: string; desc: string; descEn: string }[];
   evidenceGap?: string;
+  evidenceGapEn?: string;
 }
 
 export interface AgeGroupInfo {
   id: AgeGroup;
   label: string;
   name: string;
+  nameEn: string;
   emoji: string;
 }
 
 export const AGE_GROUPS: AgeGroupInfo[] = [
-  { id: "0-3", label: "0–3", name: "Säugling & Kleinkind", emoji: "🌱" },
-  { id: "3-6", label: "3–6", name: "Vorschule", emoji: "🎨" },
-  { id: "6-10", label: "6–10", name: "Grundschule", emoji: "📚" },
-  { id: "10-15", label: "10–15", name: "Sekundarstufe I", emoji: "🔬" },
-  { id: "15-18", label: "15–18", name: "Sekundarstufe II", emoji: "🎓" },
+  { id: "0-3", label: "0–3", name: "Säugling & Kleinkind", nameEn: "Infant & Toddler", emoji: "🌱" },
+  { id: "3-6", label: "3–6", name: "Vorschule", nameEn: "Preschool", emoji: "🎨" },
+  { id: "6-10", label: "6–10", name: "Grundschule", nameEn: "Primary School", emoji: "📚" },
+  { id: "10-15", label: "10–15", name: "Sekundarstufe I", nameEn: "Lower Secondary", emoji: "🔬" },
+  { id: "15-18", label: "15–18", name: "Sekundarstufe II", nameEn: "Upper Secondary", emoji: "🎓" },
 ];
 
 export const AI_STATUS_CONFIG = {

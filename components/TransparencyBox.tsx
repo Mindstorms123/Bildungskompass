@@ -22,29 +22,32 @@ const steps = [
 
 export function TransparencyBox({ labels }: TransparencyBoxProps) {
   return (
-    <section className="rounded-2xl border border-stone-200 bg-white p-6 md:p-10">
-      <div className="mb-8">
-        <p className="text-xs font-medium uppercase tracking-wider text-primary-light mb-2">
+    <section className="border-l-4 border-primary bg-white rounded-r-lg p-8 md:p-12">
+      <div className="mb-10">
+        <div className="dot-accent" />
+        <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary-light mb-3">
           {labels.subtitle}
         </p>
-        <h2 className="text-2xl font-semibold text-stone-900 text-balance mb-3">
+        <h2 className="text-3xl font-semibold text-stone-900 text-balance mb-4">
           {labels.title}
         </h2>
-        <p className="text-stone-600 leading-relaxed max-w-2xl text-pretty">
+        <p className="text-stone-500 leading-relaxed max-w-2xl text-pretty">
           {labels.description}
         </p>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-3">
+      <div className="grid gap-10 sm:grid-cols-3">
         {steps.map(({ key, icon: Icon, number }) => (
-          <div key={key} className="relative flex flex-col gap-3">
-            <div className="flex items-center gap-3">
-              <span className="flex size-10 items-center justify-center rounded-xl bg-bg text-primary">
-                <Icon className="size-5" aria-hidden="true" />
+          <div key={key} className="relative flex flex-col gap-4">
+            <div className="flex items-baseline gap-3">
+              <span className="font-serif text-4xl font-light text-primary tabular-nums leading-none">
+                {number}
               </span>
-              <span className="text-xs font-medium text-stone-400 tabular-nums">{number}</span>
+              <span className="flex size-8 items-center justify-center text-primary-light">
+                <Icon className="size-4" aria-hidden="true" />
+              </span>
             </div>
-            <h3 className="font-medium text-stone-900">
+            <h3 className="font-medium text-stone-900 text-balance">
               {labels[`${key}Title` as keyof typeof labels]}
             </h3>
             <p className="text-sm text-stone-500 leading-relaxed text-pretty">

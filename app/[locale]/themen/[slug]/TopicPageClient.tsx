@@ -9,7 +9,6 @@ import { AGE_GROUPS } from "@/lib/types";
 import { AIStatusBanner } from "@/components/AIStatusBanner";
 import { ProView } from "@/components/ProView";
 import { ParentView } from "@/components/ParentView";
-import { ArrowLeft } from "lucide-react";
 
 export default function TopicPageClient() {
   const params = useParams<{ locale: string; slug: string }>();
@@ -22,7 +21,7 @@ export default function TopicPageClient() {
   if (!topic) {
     return (
       <div className="mx-auto max-w-6xl px-4 py-20 text-center">
-        <h1 className="text-2xl font-bold text-stone-900 text-balance">Thema nicht gefunden</h1>
+        <h1 className="font-serif text-2xl font-normal text-stone-900 text-balance">Thema nicht gefunden</h1>
       </div>
     );
   }
@@ -34,9 +33,9 @@ export default function TopicPageClient() {
       <nav aria-label={locale === "de" ? "Brotkrumen" : "Breadcrumb"}>
         <Link
           href={`/${locale}`}
-          className="inline-flex items-center gap-1.5 text-sm text-stone-500 hover:text-stone-900 transition-colors mb-8"
+          className="inline-flex items-center gap-1 text-xs text-stone-400 uppercase tracking-wide hover:text-stone-700 mb-10"
         >
-          <ArrowLeft className="size-4" aria-hidden="true" />
+          <span aria-hidden="true">←</span>
           {messages.topic.backToOverview}
         </Link>
       </nav>
@@ -48,41 +47,46 @@ export default function TopicPageClient() {
         progressLabel={messages.aiStatus.validationProgress}
       />
 
-      <header className="mt-8 mb-10">
-        <div className="flex items-center gap-3 mb-3">
-          <span className="text-4xl" aria-hidden="true">{topic.icon}</span>
-          <h1 className="text-3xl font-bold text-stone-900 tracking-tight text-balance">
-            {title}
-          </h1>
-        </div>
+      <header className="mt-10 mb-0">
+        <div className="flex items-start gap-4 mb-3">
+          <span className="text-5xl leading-none" aria-hidden="true">{topic.icon}</span>
+          <div>
+            <h1 className="font-serif text-3xl md:text-4xl font-normal text-stone-900 tracking-tight text-balance leading-tight">
+              {title}
+            </h1>
 
-        <div className="flex flex-wrap gap-2 mt-4">
-          {topic.ages.map((ageId) => {
-            const group = AGE_GROUPS.find((g) => g.id === ageId);
-            if (!group) return null;
-            return (
-              <span
-                key={ageId}
-                className="inline-flex items-center gap-1 rounded-full bg-stone-100 px-3 py-1 text-sm text-stone-600"
-              >
-                <span aria-hidden="true">{group.emoji}</span>
-                {group.label} {group.name}
-              </span>
-            );
-          })}
+            <div className="flex flex-wrap gap-2 mt-4">
+              {topic.ages.map((ageId) => {
+                const group = AGE_GROUPS.find((g) => g.id === ageId);
+                if (!group) return null;
+                return (
+                  <span
+                    key={ageId}
+                    className="inline-flex items-center gap-1 rounded-sm border border-stone-200 px-2 py-0.5 text-xs text-stone-500"
+                  >
+                    <span aria-hidden="true">{group.emoji}</span>
+                    {group.label} {locale === "en" ? group.nameEn : group.name}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </header>
 
-      <section className="border-t border-stone-200 pt-10">
+      <hr className="border-t border-stone-200 my-10" />
+
+      <section>
         {audience === "pro" ? (
           <ProView
             topic={topic}
+            locale={locale}
             labels={messages.topic}
             effectLabel={messages.evidence.effectLabels[topic.evidence.effect]}
             costLabel={messages.evidence.costLabels[topic.evidence.cost]}
           />
         ) : (
-          <ParentView topic={topic} labels={messages.topic} />
+          <ParentView topic={topic} locale={locale} labels={messages.topic} />
         )}
       </section>
     </article>

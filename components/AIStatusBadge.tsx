@@ -7,10 +7,10 @@ interface AIStatusBadgeProps {
   locale?: string;
 }
 
-const colorClasses: Record<string, { bg: string; text: string }> = {
-  orange: { bg: "bg-orange-50", text: "text-orange-700" },
-  blue: { bg: "bg-sky-50", text: "text-sky-700" },
-  green: { bg: "bg-emerald-50", text: "text-emerald-700" },
+const colorClasses: Record<string, { border: string; text: string }> = {
+  orange: { border: "border-orange-200", text: "text-orange-700" },
+  blue: { border: "border-sky-200", text: "text-sky-700" },
+  green: { border: "border-emerald-200", text: "text-emerald-700" },
 };
 
 export function AIStatusBadge({ status, locale = "de" }: AIStatusBadgeProps) {
@@ -21,8 +21,8 @@ export function AIStatusBadge({ status, locale = "de" }: AIStatusBadgeProps) {
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium",
-        colors.bg,
+        "inline-flex items-center gap-1.5 rounded-sm border px-2 py-0.5 text-[0.6875rem] font-medium tracking-wide",
+        colors.border,
         colors.text
       )}
     >

@@ -12,7 +12,7 @@ export function AudienceToggle({ labels }: AudienceToggleProps) {
 
   return (
     <div
-      className="relative flex rounded-full bg-white/80 p-1 shadow-sm border border-stone-200"
+      className="inline-flex rounded-full bg-white/80 p-1 shadow-sm border border-stone-200"
       role="radiogroup"
       aria-label="Zielgruppe wählen"
     >
@@ -21,9 +21,9 @@ export function AudienceToggle({ labels }: AudienceToggleProps) {
         aria-checked={audience === "pro"}
         onClick={() => setAudience("pro")}
         className={cn(
-          "relative z-10 rounded-full px-4 py-2 text-sm font-medium transition-colors",
+          "rounded-full px-4 py-2 text-sm font-medium transition-colors",
           audience === "pro"
-            ? "text-white"
+            ? "bg-accent-pro text-white"
             : "text-stone-600 hover:text-stone-900"
         )}
       >
@@ -34,27 +34,14 @@ export function AudienceToggle({ labels }: AudienceToggleProps) {
         aria-checked={audience === "parent"}
         onClick={() => setAudience("parent")}
         className={cn(
-          "relative z-10 rounded-full px-4 py-2 text-sm font-medium transition-colors",
+          "rounded-full px-4 py-2 text-sm font-medium transition-colors",
           audience === "parent"
-            ? "text-white"
+            ? "bg-accent-parent text-white"
             : "text-stone-600 hover:text-stone-900"
         )}
       >
         {labels.parent}
       </button>
-      <span
-        aria-hidden="true"
-        className={cn(
-          "absolute top-1 bottom-1 rounded-full transition-transform duration-200 ease-out",
-          audience === "pro"
-            ? "left-1 bg-accent-pro"
-            : "bg-accent-parent"
-        )}
-        style={{
-          width: "calc(50% - 4px)",
-          transform: audience === "parent" ? "translateX(calc(100% + 4px))" : "translateX(0)",
-        }}
-      />
     </div>
   );
 }

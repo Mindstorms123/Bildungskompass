@@ -16,9 +16,9 @@ export function TopicGrid({ locale, allLabel, effectLabels }: TopicGridProps) {
   const [selectedAge, setSelectedAge] = useState<AgeGroup | null>(null);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-12">
       <AgeFilter selected={selectedAge} onSelect={setSelectedAge} allLabel={allLabel} />
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {topics.map((topic) => (
           <TopicCard
             key={topic.id}

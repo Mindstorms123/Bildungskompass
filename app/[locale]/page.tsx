@@ -75,17 +75,20 @@ export default async function HomePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="mx-auto w-full max-w-6xl px-4 py-12 md:px-6 md:py-20">
-        <section className="mb-16 text-center">
-          <h1 className="text-4xl font-bold text-stone-900 sm:text-5xl md:text-6xl text-balance mb-4 tracking-tight">
+      <div className="mx-auto w-full max-w-5xl px-6 py-16 md:px-10 md:py-28">
+        <section className="mb-20 max-w-3xl">
+          <div className="dot-accent" />
+          <h1 className="text-5xl font-bold text-stone-900 sm:text-6xl lg:text-7xl text-balance mb-10 tracking-tight leading-[1.08]">
             {messages.hero.headline}
           </h1>
-          <p className="mx-auto max-w-2xl text-lg text-stone-600 text-pretty leading-relaxed">
+          <p className="max-w-xl text-xl text-stone-500 text-pretty leading-relaxed">
             {messages.hero.subline}
           </p>
         </section>
 
-        <section className="mb-20">
+        <hr className="editorial-rule mb-20" />
+
+        <section className="mb-24">
           <h2 className="sr-only">
             {locale === "de" ? "Bildungsthemen" : "Education Topics"}
           </h2>

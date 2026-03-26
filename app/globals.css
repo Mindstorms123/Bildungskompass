@@ -21,8 +21,31 @@
   --color-ai-validated: #27AE60;
 }
 
+/* Editorial typography system */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
+  font-optical-sizing: auto;
+}
+
+h1 {
+  font-variation-settings: "opsz" 72;
+}
+
+h2 {
+  font-variation-settings: "opsz" 36;
+}
+
+/* Subtle paper texture on background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
 }
 
 .scrollbar-none {
@@ -36,4 +59,29 @@ h1, h2, h3, h4, h5, h6 {
 ::selection {
   background-color: var(--color-primary);
   color: white;
+}
+
+/* Editorial horizontal rule */
+.editorial-rule {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-border), transparent);
+  border: none;
+}
+
+/* Decorative dot pattern for section accents */
+.dot-accent::before {
+  content: "·····";
+  display: block;
+  font-size: 1.5rem;
+  letter-spacing: 0.5em;
+  color: var(--color-primary-light);
+  opacity: 0.4;
+  margin-bottom: 1rem;
+}
+
+/* Focus ring style */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
 }

@@ -19,10 +19,10 @@ const barColors: Record<string, string> = {
   green: "bg-emerald-500",
 };
 
-const bgColors: Record<string, string> = {
-  orange: "bg-orange-50 border-orange-200",
-  blue: "bg-sky-50 border-sky-200",
-  green: "bg-emerald-50 border-emerald-200",
+const borderColors: Record<string, string> = {
+  orange: "border-orange-200",
+  blue: "border-sky-200",
+  green: "border-emerald-200",
 };
 
 export function AIStatusBanner({
@@ -37,20 +37,20 @@ export function AIStatusBanner({
   const description = locale === "en" ? config.descriptionEn : config.description;
 
   return (
-    <div className={cn("rounded-2xl border p-4 md:p-6", bgColors[config.color])}>
+    <div className={cn("border-l-2 bg-stone-50/60 px-5 py-4", borderColors[config.color])}>
       <button
         onClick={() => setExpanded(!expanded)}
         className="flex w-full items-center justify-between gap-4 text-left"
         aria-expanded={expanded}
         aria-controls="ai-status-details"
       >
-        <div className="flex items-center gap-3">
-          <span className="text-lg" aria-hidden="true">{config.icon}</span>
-          <span className="font-medium text-stone-900">{label}</span>
+        <div className="flex items-center gap-2.5">
+          <span className="text-sm" aria-hidden="true">{config.icon}</span>
+          <span className="text-sm font-medium text-stone-700">{label}</span>
         </div>
         <ChevronDown
           className={cn(
-            "size-5 text-stone-500 transition-transform duration-200",
+            "size-4 text-stone-400",
             expanded && "rotate-180"
           )}
           aria-hidden="true"
@@ -58,13 +58,13 @@ export function AIStatusBanner({
       </button>
 
       <div className="mt-3">
-        <div className="flex items-center gap-2 text-xs text-stone-500 mb-1.5">
-          <span>{progressLabel}</span>
+        <div className="flex items-center gap-2 text-xs text-stone-400 mb-1.5 tracking-wide">
+          <span className="uppercase">{progressLabel}</span>
           <span className="tabular-nums">{config.progress}%</span>
         </div>
-        <div className="h-1.5 w-full rounded-full bg-stone-200" role="progressbar" aria-label={progressLabel} aria-valuenow={config.progress} aria-valuemin={0} aria-valuemax={100}>
+        <div className="h-0.5 w-full bg-stone-200" role="progressbar" aria-label={progressLabel} aria-valuenow={config.progress} aria-valuemin={0} aria-valuemax={100}>
           <div
-            className={cn("h-full rounded-full", barColors[config.color])}
+            className={cn("h-full", barColors[config.color])}
             style={{ width: `${config.progress}%` }}
           />
         </div>
@@ -72,10 +72,10 @@ export function AIStatusBanner({
 
       {expanded && (
         <div id="ai-status-details" className="mt-4 space-y-3">
-          <p className="text-sm text-stone-700 leading-relaxed">{description}</p>
+          <p className="text-sm text-stone-600 leading-relaxed text-pretty">{description}</p>
           <a
             href={`/${locale}/methodik`}
-            className="inline-flex items-center text-sm font-medium text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900"
+            className="inline-flex items-center text-xs font-medium text-stone-500 uppercase tracking-wide hover:text-stone-900"
           >
             {howWeReviewLabel} →
           </a>

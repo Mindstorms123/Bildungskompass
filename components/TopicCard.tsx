@@ -21,38 +21,40 @@ export function TopicCard({ topic, locale, selectedAge, effectLabel }: TopicCard
     <Link
       href={href}
       className={cn(
-        "group relative flex flex-col rounded-2xl border border-stone-200 bg-white p-6 transition-[transform,opacity] duration-200",
+        "group relative flex flex-col border-l-[3px] border-l-primary bg-white px-7 py-6 transition-[transform,opacity] duration-200",
         isRelevant
-          ? "shadow-sm hover:-translate-y-0.5"
+          ? "hover:-translate-y-0.5"
           : "opacity-30 pointer-events-none"
       )}
       aria-hidden={!isRelevant}
       tabIndex={isRelevant ? 0 : -1}
     >
-      <div className="flex items-start justify-between gap-3 mb-4">
-        <span className="text-3xl" aria-hidden="true">{topic.icon}</span>
+      <div className="flex items-start justify-between gap-4 mb-5">
+        <span className="text-4xl leading-none" aria-hidden="true">{topic.icon}</span>
         <AIStatusBadge status={topic.aiStatus} locale={locale} />
       </div>
 
-      <h3 className="text-lg font-semibold text-stone-900 text-balance mb-3 group-hover:text-primary">
+      <h3 className="font-serif text-xl font-semibold text-stone-900 text-balance mb-4 group-hover:text-primary">
         {locale === "en" ? topic.titleEn : topic.title}
       </h3>
 
-      <div className="flex flex-wrap items-center gap-2 mb-4">
+      <div className="flex flex-wrap items-center gap-2 mb-5">
         <EvidenceShields strength={topic.evidence.strength} />
-        <EffectBadge effect={topic.evidence.effect} label={effectLabel} />
+        <span className="text-xs">
+          <EffectBadge effect={topic.evidence.effect} label={effectLabel} />
+        </span>
       </div>
 
-      <div className="mt-auto flex flex-wrap gap-1.5">
+      <div className="mt-auto flex items-center gap-3 text-xs text-stone-400">
         {topic.ages.map((ageId) => {
           const group = AGE_GROUPS.find((g) => g.id === ageId);
           if (!group) return null;
           return (
             <span
               key={ageId}
-              className="inline-flex items-center gap-1 rounded-full bg-stone-100 px-2 py-0.5 text-xs text-stone-600"
+              className="inline-flex items-center gap-1 text-pretty"
             >
-              <span aria-hidden="true">{group.emoji}</span>
+              <span className="size-1.5 rounded-full bg-stone-300" aria-hidden="true" />
               {group.label}
             </span>
           );
