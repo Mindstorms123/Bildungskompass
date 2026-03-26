@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "title": "Bildungskompass – Was funktioniert in der Bildung?",
+    "description": "Evidenzbasierte Empfehlungen für Lehrkräfte und Eltern – verständlich, praxisnah, quellenbasiert."
+  },
+  "nav": {
+    "home": "Startseite",
+    "methodik": "Methodik",
+    "language": "EN",
+    "skipToContent": "Zum Inhalt springen"
+  },
+  "audience": {
+    "pro": "Für Fachkräfte",
+    "parent": "Für Eltern & Familien"
+  },
+  "hero": {
+    "headline": "Was funktioniert in der Bildung?",
+    "subline": "Evidenzbasierte Empfehlungen für Lehrkräfte und Eltern – verständlich, praxisnah, quellenbasiert."
+  },
+  "ages": {
+    "all": "Alle Altersgruppen",
+    "0-3": "0–3",
+    "3-6": "3–6",
+    "6-10": "6–10",
+    "10-15": "10–15",
+    "15-18": "15–18"
+  },
+  "evidence": {
+    "strength": "Evidenzstärke",
+    "effect": "Effektstärke",
+    "cost": "Kosten",
+    "shields": "Evidenz-Shields",
+    "effectLabels": {
+      "groß": "Großer Effekt",
+      "moderat": "Moderater Effekt",
+      "klein": "Kleiner Effekt",
+      "unklar": "Unklar"
+    },
+    "costLabels": {
+      "keine": "Keine Kosten",
+      "gering": "Geringe Kosten",
+      "mittel": "Mittlere Kosten",
+      "hoch": "Hohe Kosten"
+    }
+  },
+  "aiStatus": {
+    "howWeReview": "Wie wir Inhalte prüfen",
+    "validationProgress": "Validierungsfortschritt"
+  },
+  "topic": {
+    "evidenceSummary": "Evidenz-Zusammenfassung",
+    "practiceeTips": "Praxis-Tipps für den Unterricht",
+    "internationalModels": "Internationale Vorbilder",
+    "sources": "Quellen",
+    "whatYouCanDo": "Was Sie tun können",
+    "whyItMatters": "Warum das wichtig ist",
+    "simplifiedSources": "Quellen",
+    "basedOnStudies": "Basierend auf {count} wissenschaftlichen Studien",
+    "ageGroups": "Altersgruppen",
+    "evidenceGap": "Wo die Evidenz dünn ist",
+    "conflictingEvidence": "Widersprüchliche Evidenz",
+    "backToOverview": "Zurück zur Übersicht"
+  },
+  "transparency": {
+    "title": "So arbeiten wir",
+    "subtitle": "KI-gestützt, quellenbasiert, transparent",
+    "description": "Alle Inhalte auf Bildungskompass werden KI-gestützt erstellt und durchlaufen ein dreistufiges Validierungsmodell. Jeder Inhalt trägt einen transparenten Status – von KI-Entwurf über redaktionelle Prüfung bis zur Expert:innen-Validierung.",
+    "step1Title": "KI-Entwurf",
+    "step1Desc": "Inhalte werden mithilfe von KI auf Basis wissenschaftlicher Quellen erstellt.",
+    "step2Title": "Redaktionelle Prüfung",
+    "step2Desc": "Das Redaktionsteam überprüft Inhalte auf Richtigkeit und Verständlichkeit.",
+    "step3Title": "Expert:innen-Validierung",
+    "step3Desc": "Fachexpert:innen aus der Bildungsforschung validieren die Empfehlungen."
+  },
+  "footer": {
+    "disclaimer": "Bildungskompass nutzt KI zur Erstellung von Inhalten. Alle Empfehlungen basieren auf wissenschaftlichen Quellen, die verlinkt sind. Kein Inhalt ersetzt professionelle Beratung.",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "methodology": "Methodik"
+  },
+  "methodik": {
+    "title": "Methodik",
+    "howWeWork": "Wie wir arbeiten",
+    "howWeWorkDesc": "Bildungskompass nutzt einen dreistufigen Validierungsprozess, um Transparenz und Qualität zu gewährleisten.",
+    "evidenceShields": "Was bedeuten die Evidenz-Shields?",
+    "shield4": "4 Shields – Robust: Mehrere hochwertige randomisierte kontrollierte Studien (RCTs) bestätigen den Effekt konsistent.",
+    "shield3": "3 Shields – Solide: Mindestens ein RCT oder mehrere quasi-experimentelle Studien mit konsistenten Ergebnissen.",
+    "shield2": "2 Shields – Aufkommend: Erste Studien zeigen vielversprechende Ergebnisse, aber die Datenbasis ist noch schmal.",
+    "shield1": "1 Shield – Vorläufig: Pilotstudien oder theoretische Fundierung, empirische Überprüfung steht noch aus.",
+    "effectSizes": "Wie werden Effektstärken dargestellt?",
+    "effectSizesDesc": "Wir nutzen Cohen's d bzw. Hedges' g als Maß für Effektstärken. Ein Effekt von d = 0,2 gilt als klein, d = 0,5 als moderat und d = 0,8 als groß. Auf den Themenkarten zeigen farbige Badges den Effekt an.",
+    "whyAI": "Warum Transparenz über KI?",
+    "whyAIDesc": "Wir nutzen KI, weil sie es ermöglicht, große Mengen an Forschungsliteratur schnell aufzubereiten und zielgruppengerecht darzustellen. Gleichzeitig wissen wir: KI kann Fehler machen, Nuancen übersehen oder Quellen falsch interpretieren. Deshalb kennzeichnen wir transparent, welche Inhalte bereits fachlich geprüft wurden – und welche noch nicht. Unser Ziel ist nicht Perfektion, sondern Transparenz."
+  }
+}

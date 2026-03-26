@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "title": "Bildungskompass – What Works in Education?",
+    "description": "Evidence-based recommendations for educators and parents – clear, practical, source-based."
+  },
+  "nav": {
+    "home": "Home",
+    "methodik": "Methodology",
+    "language": "DE",
+    "skipToContent": "Skip to content"
+  },
+  "audience": {
+    "pro": "For Educators",
+    "parent": "For Parents & Families"
+  },
+  "hero": {
+    "headline": "What Works in Education?",
+    "subline": "Evidence-based recommendations for educators and parents – clear, practical, source-based."
+  },
+  "ages": {
+    "all": "All Ages",
+    "0-3": "0–3",
+    "3-6": "3–6",
+    "6-10": "6–10",
+    "10-15": "10–15",
+    "15-18": "15–18"
+  },
+  "evidence": {
+    "strength": "Evidence Strength",
+    "effect": "Effect Size",
+    "cost": "Cost",
+    "shields": "Evidence Shields",
+    "effectLabels": {
+      "groß": "Large Effect",
+      "moderat": "Moderate Effect",
+      "klein": "Small Effect",
+      "unklar": "Unclear"
+    },
+    "costLabels": {
+      "keine": "No Cost",
+      "gering": "Low Cost",
+      "mittel": "Medium Cost",
+      "hoch": "High Cost"
+    }
+  },
+  "aiStatus": {
+    "howWeReview": "How we review content",
+    "validationProgress": "Validation Progress"
+  },
+  "topic": {
+    "evidenceSummary": "Evidence Summary",
+    "practiceeTips": "Practical Tips for Teaching",
+    "internationalModels": "International Models",
+    "sources": "Sources",
+    "whatYouCanDo": "What You Can Do",
+    "whyItMatters": "Why This Matters",
+    "simplifiedSources": "Sources",
+    "basedOnStudies": "Based on {count} scientific studies",
+    "ageGroups": "Age Groups",
+    "evidenceGap": "Where evidence is thin",
+    "conflictingEvidence": "Conflicting Evidence",
+    "backToOverview": "Back to Overview"
+  },
+  "transparency": {
+    "title": "How We Work",
+    "subtitle": "AI-assisted, source-based, transparent",
+    "description": "All content on Bildungskompass is created with AI assistance and undergoes a three-stage validation model. Each piece of content carries a transparent status – from AI draft through editorial review to expert validation.",
+    "step1Title": "AI Draft",
+    "step1Desc": "Content is created using AI based on scientific sources.",
+    "step2Title": "Editorial Review",
+    "step2Desc": "The editorial team reviews content for accuracy and clarity.",
+    "step3Title": "Expert Validation",
+    "step3Desc": "Subject matter experts from education research validate the recommendations."
+  },
+  "footer": {
+    "disclaimer": "Bildungskompass uses AI to create content. All recommendations are based on scientific sources, which are linked. No content replaces professional advice.",
+    "imprint": "Imprint",
+    "privacy": "Privacy",
+    "methodology": "Methodology"
+  },
+  "methodik": {
+    "title": "Methodology",
+    "howWeWork": "How We Work",
+    "howWeWorkDesc": "Bildungskompass uses a three-stage validation process to ensure transparency and quality.",
+    "evidenceShields": "What do the Evidence Shields mean?",
+    "shield4": "4 Shields – Robust: Multiple high-quality randomized controlled trials (RCTs) consistently confirm the effect.",
+    "shield3": "3 Shields – Solid: At least one RCT or multiple quasi-experimental studies with consistent results.",
+    "shield2": "2 Shields – Emerging: Initial studies show promising results, but the evidence base is still narrow.",
+    "shield1": "1 Shield – Preliminary: Pilot studies or theoretical foundation, empirical verification still pending.",
+    "effectSizes": "How are effect sizes displayed?",
+    "effectSizesDesc": "We use Cohen's d or Hedges' g as measures of effect size. An effect of d = 0.2 is considered small, d = 0.5 moderate, and d = 0.8 large. Colored badges on topic cards indicate the effect.",
+    "whyAI": "Why Transparency About AI?",
+    "whyAIDesc": "We use AI because it enables us to quickly process large amounts of research literature and present it in a target-group-appropriate way. At the same time, we know: AI can make mistakes, overlook nuances, or misinterpret sources. That's why we transparently label which content has already been professionally reviewed – and which hasn't. Our goal is not perfection, but transparency."
+  }
+}
